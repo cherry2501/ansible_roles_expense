@@ -1,2 +1,4 @@
 login_host: mysql.charanworld.online
 mysql_root_password: ExpenseApp@1
+app_loaction: /app
+component: backend
