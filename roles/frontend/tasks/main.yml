@@ -9,26 +9,10 @@
     state: started
     enabled: yes
 
-- name: remove default html content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
-
-- name: create html directory
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: directory
-
-- name: download frontend content
-  ansible.builtin.get_url:
-    url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip
-    dest: /tmp/frontend.zip
-
-- name: extract content
-  ansible.builtin.unarchive:
-    src: /tmp/frontend.zip
-    dest: /usr/share/nginx/html
-    remote_src: true
+- name: import common tasks from role
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: copy frontend config
   ansible.builtin.template:
