@@ -1,5 +1,7 @@
 - name: configure mysql server
   hosts: mysql
-  become: yes
+  become: yes #becomes root on remote server(mysql)
+  vars_files:
+    - /var/expense/credentialt_mysql.yml # file is in ansible_server
   roles:
   - mysql
