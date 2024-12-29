@@ -2,7 +2,7 @@
   hosts: backend
   become: yes
   vars_files:
-    - /var/expense/credentialt_mysql.yml # file is in ansible_server
+    - /var/expense/credentials_mysql.yml # file is in ansible_server
   roles:
   - backend
   
